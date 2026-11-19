@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Trophy Guide — GTA VI (PS5)</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: checklist, roadmap to the platinum, missables, and a cited guide for every trophy.">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/views.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark" aria-hidden="true">L★</div>
+    <div>
+      <h1>Leonida Trophy Guide</h1>
+      <p class="subtitle">Grand Theft Auto VI — PlayStation 5 · 55 trophies · works offline</p>
+    </div>
+  </div>
+  <div class="progress-wrap" id="progress-wrap">
+    <div class="progress-line"><span id="progress-text">0 of 55 earned</span><span id="progress-pct">0%</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+    <div class="progress-grades" id="progress-grades"></div>
+  </div>
+</header>
+<nav class="tabs" aria-label="Guide sections">
+  <button type="button" class="tab active" data-view="tracker" id="tab-tracker">Tracker</button>
+  <button type="button" class="tab" data-view="roadmap" id="tab-roadmap">Roadmap to Platinum</button>
+  <button type="button" class="tab" data-view="missables" id="tab-missables">Missables</button>
+  <button type="button" class="tab" data-view="about" id="tab-about">About &amp; sources</button>
+</nav>
+
+<main>
+  <section id="view-tracker" class="view active" aria-label="Trophy tracker">
+    <div class="toolbar">
+      <label class="search-box">Search
+        <input type="search" id="search" placeholder="Name or description…" autocomplete="off">
+      </label>
+      <fieldset class="kind-filters" id="kind-filters">
+        <legend>Kind</legend>
+        <button type="button" class="kind-btn active" data-kind="all">All</button>
+        <button type="button" class="kind-btn" data-kind="story">Story</button>
+        <button type="button" class="kind-btn" data-kind="missable">Missable</button>
+        <button type="button" class="kind-btn" data-kind="collectibles">Collectibles</button>
+        <button type="button" class="kind-btn" data-kind="activities">Activities</button>
+        <button type="button" class="kind-btn" data-kind="online">Online</button>
+      </fieldset>
+      <label class="grade-box">Grade
+        <select id="grade">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="check-toggle"><input type="checkbox" id="spoilers"> Hide story spoilers</label>
+      <label class="check-toggle"><input type="checkbox" id="earned-only"> Earned only</label>
+      <div class="io-buttons">
+        <button type="button" id="export">Export progress</button>
+        <label class="import-btn">Import progress <input type="file" id="import" accept="application/json,.json"></label>
+        <button type="button" id="reset">Reset</button>
+      </div>
+    </div>
+    <p class="hint" id="list-hint"></p>
+    <div class="tracker-layout">
+      <div class="list-col">
+        <ol class="trophy-list" id="trophy-list"></ol>
+        <p class="empty-state" id="empty-state" hidden></p>
+      </div>
+      <aside class="detail-pane" id="detail-pane" aria-label="Trophy guide"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" aria-label="Roadmap to the platinum">
+    <h2>Roadmap to the platinum</h2>
+    <p class="lede">Five stages, built only from the official trophy descriptions. Play in this order and the platinum follows: story first, then side strands, then collectibles, then activities, then the endgame.</p>
+    <div id="roadmap-stages"></div>
+  </section>
+
+  <section id="view-missables" class="view" aria-label="Missable trophies">
+    <h2>Missable trophies</h2>
+    <p class="lede">Honest warning first: the game released 19 November 2026 and no published guide has yet confirmed a single missable trophy. The six below are <strong>candidates</strong> — flagged only because their official descriptions point at one specific moment. Every other trophy is expected to be safe: chapter and mission trophies unlock by finishing that content, and count trophies can be worked on at any time.</p>
+    <div id="missable-list"></div>
+    <h3>Why the rest are expected safe</h3>
+    <ul class="safe-list" id="safe-list"></ul>
+  </section>
+
+  <section id="view-about" class="view" aria-label="About and sources">
+    <h2>About this guide</h2>
+    <p>This guide is an offline fan-made tracker. It is not affiliated with Rockstar Games, and it uses no Rockstar logo, artwork, box art or game screenshots — the look is its own.</p>
+    <h3>Honesty note</h3>
+    <p>Grand Theft Auto VI released on 19 November 2026. Community guides are barely a day old, so many steps cannot yet be pinned down. Where a step is not backed by a cited source, the guide says so plainly instead of inventing a location or a step. A cited, honest guide beats an invented detailed one.</p>
+    <h3>Sources</h3>
+    <p>Names, descriptions, grades and PSN counts come from the official list as published by the sources below (loaded from the trophy data file, so the list stays in one place):</p>
+    <ul class="source-list" id="about-sources"></ul>
+    <p>Every trophy's guide cites its sources beside it. Links open only when you follow them; the app itself fetches nothing and works with the network off. Your progress is stored only in this browser (localStorage) and can be exported to a file.</p>
+    <h3>How to use it</h3>
+    <ul>
+      <li>Tick a trophy off when you earn it — it stays ticked in this browser.</li>
+      <li>Use <strong>Hide story spoilers</strong> to keep story trophy names and descriptions hidden until you earn them.</li>
+      <li>Open any trophy's guide with a link like <code>#trophy=The Shootist</code>.</li>
+      <li>Export your progress to a JSON file to back it up, and import it back any time.</li>
+    </ul>
+  </section>
+</main>
+<footer>
+  <p>Unofficial fan guide. Grand Theft Auto and GTA are trademarks of their owner; this guide is not affiliated with or endorsed by Rockstar Games. Trophy names and descriptions are shown as PlayStation publishes them.</p>
+</footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
